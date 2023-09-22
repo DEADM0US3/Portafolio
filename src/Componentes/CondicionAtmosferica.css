@@ -1,6 +1,10 @@
 .selectState{
     border-radius: 5px;
     margin: 10px;
+    width: 50%;
+    height: 5%;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container-cards{

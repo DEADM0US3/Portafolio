@@ -10,7 +10,7 @@ const HomeDashboard = () => {
 
       <div className='contenedor-lista-apis'> 
         <h2>APIs</h2>
-        <ListaApis/>
+        <ListaApis fragua={true}/>
       </div>
 
       <div className='api-content'>
@@ -22,7 +22,7 @@ const HomeDashboard = () => {
                 <p>Kevin Alexis Bello Maldonado</p>
               </li>
               <li>
-                <p>Luis Alberto Villafaña Alfonseca</p>
+                <p>Fernando Alberto Villafaña Alfonseca</p>
               </li>
               <li>
                 <p>Miguel Angel Ortega Mazun</p>

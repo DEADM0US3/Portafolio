@@ -10,7 +10,7 @@ const Dashboard = () => {
 
       <div className='contenedor-lista-apis'> 
         <h2>APIs</h2>
-        <ListaApis/>
+        <ListaApis fragua={false}/>
       </div>
 
       <div className='api-content'>

@@ -53,6 +53,9 @@ function CondicionAtmosferica() {
 
     return (
         <>
+            <div>
+                <h1> Estado del Tiempo</h1>
+            </div>
             <select className="selectState"
                 onChange={(e) => setEstadoActual(e.target.value)}
             >
@@ -65,7 +68,7 @@ function CondicionAtmosferica() {
             </select>
             {/* {estadoActual} */}
 
-            <h1> Estado del Tiempo</h1>
+            
             <div className="container-cards">
             
             
