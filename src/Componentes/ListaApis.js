@@ -7,21 +7,21 @@ export default function ListaApis() {
 
   const [selectItem, setSelectItem] = React.useState(null);
 
-  const handleItemClick = (itemName) => {
+  const itemClick = (itemName) => {
     setSelectItem(itemName);
   };
 
   return (
     <div>
         <ul className='lista-apis'>
-          <Link to="/" onClick={() => handleItemClick('home')}>
+          <Link to="/" onClick={() => itemClick('home')}>
             <li className={`home-api ${selectItem === 'home' ?  'selected' : ''}`}>                
               Home
               <BiHomeAlt2/>
             </li>
           </Link>
        
-          <Link to='/dashboard/api-weather' onClick={()=> handleItemClick('weather')}>
+          <Link to='/dashboard/api-weather' onClick={()=> iItemClick('weather')}>
             <li className={`weather-api ${selectItem === 'weather' ?  'selected' : ''}`}>
                 Estado del tiempo
               <BsCloudSun/>
