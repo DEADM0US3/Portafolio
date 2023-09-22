@@ -42,7 +42,8 @@ function CondicionAtmosferica() {
 
 
     const consultarDatos = () => {
-        return fetch(url)
+        // return fetch(url)
+        return fetch(`${url}?state=${estadoActual}`)
             .then((res) => res.json())
             .then((condicionAtm) => setDatos(condicionAtm.results))
     }
@@ -77,8 +78,9 @@ function CondicionAtmosferica() {
                         
                         return (
                             <div key={index} className="card">
-                                <h6>{ciudad.name}</h6>
-                                <p> <i>{ciudad.skydescriptionlong}</i></p>
+                                <h6>Ciudad: {ciudad.name}</h6>
+                                <p> <i>Estado del clima: {ciudad.skydescriptionlong}</i></p>
+                                <p> <i>Temperatura: {ciudad.tempc}°</i></p>
                             </div>
             
                         );
