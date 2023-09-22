@@ -5,6 +5,9 @@
     display: grid;
     grid-template-columns: 1fr 5fr;
     background-color: rgb(240, 242, 245);
+    background-image: url("../assets/images/bernd-dittrich-2p10wRLDhFU-unsplash.jpg");
+    object-fit: cover;
+    background-size: cover;
 }
 
 .contenedor-lista-apis{
@@ -54,5 +57,9 @@
 }
 
 .api-content{
-    margin: 2%;
+    margin: 1%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 2%;
+
 }

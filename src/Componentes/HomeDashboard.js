@@ -28,9 +28,7 @@ const HomeDashboard = () => {
                 <p>Miguel Angel Ortega Mazun</p>
               </li>
             </ul>
-            
-            
-            
+
         </div>
       </div>
     </div>
