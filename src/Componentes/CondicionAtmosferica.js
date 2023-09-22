@@ -38,7 +38,7 @@ function CondicionAtmosferica() {
                 { id: 32, name: "Zacatecas" }];
 
     const [datos, setDatos] = useState([]);
-    const [estadoActual, setEstadoActual] = useState("");
+    const [estadoActual, setEstadoActual] = useState("Quintana Roo");
     const [cargando, setCargando] = useState(false);
 
     const consultarDatos = () => {
@@ -75,22 +75,20 @@ function CondicionAtmosferica() {
                     </option>
                 ))}
             </select>
-            
+
             {cargando ? (
-                <p>Cargando datos...</p> // Mensaje de carga
+                <p>Cargando datos...</p>
             ) : (
                 <div className="container-cards">
-                    {datos.map((ciudad, index) => {
-                        if (ciudad.state === estadoActual && index <= 8) {
-                            return (
-                                <div key={index} className="card">
-                                    <h6>Ciudad: {ciudad.name}</h6>
-                                    <p><i>Estado del clima: {ciudad.skydescriptionlong}</i></p>
-                                    <p><i>Temperatura: {ciudad.tempc}°</i></p>
-                                </div>
-                            );
-                        }
-                        return null; // Agregar un return null para evitar problemas con elementos vacíos
+                    {Array.from(new Set(datos.map((ciudad) => ciudad.name))).map((nombreCiudad, index) => {
+                        const ciudadData = datos.find((ciudad) => ciudad.name === nombreCiudad);
+                        return (
+                            <div key={index} className="card">
+                                <h6>Ciudad: {nombreCiudad}</h6>
+                                <p><i>Estado del clima: {ciudadData.skydescriptionlong}</i></p>
+                                <p><i>Temperatura: {ciudadData.tempc}°</i></p>
+                            </div>
+                        );
                     })}
                 </div>
             )}
