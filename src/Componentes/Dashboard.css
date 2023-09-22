@@ -41,6 +41,11 @@
     margin: 0;
 }
 
+.selected{
+    background-color: white !important;
+    color: black;
+}
+
 .home-api,
 .weather-api{
     display: flex;
