@@ -1,0 +1,15 @@
+.selectState{
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.container-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card{
+    padding: 1%;
+    margin: 10px;
+    box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.582);    
+}
