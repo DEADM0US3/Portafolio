@@ -9,6 +9,7 @@ export default function ListaApis() {
 
   const itemClick = (itemName) => {
     setSelectItem(itemName);
+    
   };
 
   return (
@@ -21,7 +22,7 @@ export default function ListaApis() {
             </li>
           </Link>
        
-          <Link to='/dashboard/api-weather' onClick={()=> iItemClick('weather')}>
+          <Link to='/dashboard/api-weather' onClick={()=> itemClick('weather')}>
             <li className={`weather-api ${selectItem === 'weather' ?  'selected' : ''}`}>
                 Estado del tiempo
               <BsCloudSun/>
