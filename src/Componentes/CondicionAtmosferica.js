@@ -25,16 +25,16 @@ function CondicionAtmosferica() {
         { id: 19, name: "Nuevo León" },
         { id: 20, name: "Oaxaca" },
         { id: 21, name: "Puebla" },
-        { id: 22, name: "Querétaro" },
+        { id: 22, name: "Queretaro" },
         { id: 23, name: "Quintana Roo" },
-        { id: 24, name: "San Luis Potosí" },
+        { id: 24, name: "San Luis Potosi" },
         { id: 25, name: "Sinaloa" },
         { id: 26, name: "Sonora" },
         { id: 27, name: "Tabasco" },
         { id: 28, name: "Tamaulipas" },
         { id: 29, name: "Tlaxcala" },
         { id: 30, name: "Veracruz" },
-        { id: 31, name: "Yucatán" },
+        { id: 31, name: "Yucatan" },
         { id: 32, name: "Zacatecas" }];
         
     const [datos, setDatos] = useState([]);
@@ -50,7 +50,7 @@ function CondicionAtmosferica() {
 
     useEffect(() => {
         consultarDatos();
-    }, []);
+    }, [estadoActual]);
 
     return (
         <>
@@ -74,8 +74,7 @@ function CondicionAtmosferica() {
             
             
             {datos.map((ciudad, index) => {
-                    if (ciudad.state == estadoActual) {
-                        
+                    if (ciudad.state == estadoActual  && index<=8) {
                         return (
                             <div key={index} className="card">
                                 <h6>Ciudad: {ciudad.name}</h6>
