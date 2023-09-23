@@ -1,5 +1,5 @@
 import React from 'react'
-import CondicionAtmosferica from './CondicionAtmosferica.js';
+import CondicionAtmosferica from './CondicionAtmosferica/CondicionAtmosferica.js';
 import "./Dashboard.css"
 import ListaApis from './ListaApis.js';
 
@@ -10,6 +10,7 @@ const Dashboard = () => {
 
       <div className='contenedor-lista-apis'> 
         <h2>APIs</h2>
+
         <ListaApis fragua={false}/>
       </div>
 

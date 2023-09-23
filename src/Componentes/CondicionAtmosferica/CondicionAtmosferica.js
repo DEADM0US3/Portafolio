@@ -38,21 +38,29 @@ function CondicionAtmosferica() {
                 { id: 32, name: "Zacatecas" }];
 
     const [datos, setDatos] = useState([]);
-    const [estadoActual, setEstadoActual] = useState("Quintana Roo");
+    const [estadoActual, setEstadoActual] = useState("");
     const [cargando, setCargando] = useState(false);
+    const [estadoVacio, setEstadoVacio] = useState(false);
 
     const consultarDatos = () => {
-        setCargando(true); // Mostrar el mensaje de carga
+        if (estadoActual === "") {
+            setEstadoVacio(true);
+            return;
+        }
+
+        setCargando(true);
 
         fetch(`${url}?state=${estadoActual}`)
             .then((res) => res.json())
             .then((condicionAtm) => {
                 setDatos(condicionAtm.results);
-                setCargando(false); // Ocultar el mensaje de carga cuando los datos se carguen
+                setCargando(false);
+                setEstadoVacio(false);
             })
             .catch((error) => {
                 console.error("Error al obtener datos:", error);
-                setCargando(false); // Ocultar el mensaje de carga en caso de error
+                setCargando(false);
+                setEstadoVacio(false);
             });
     }
 
@@ -76,12 +84,15 @@ function CondicionAtmosferica() {
                 ))}
             </select>
 
+            {estadoVacio ? <p style={{ color: "red" }}>Por favor, selecciona un estado.</p> : null}
+
             {cargando ? (
                 <p>Cargando datos...</p>
             ) : (
                 <div className="container-cards">
                     {Array.from(new Set(datos.map((ciudad) => ciudad.name))).map((nombreCiudad, index) => {
                         const ciudadData = datos.find((ciudad) => ciudad.name === nombreCiudad);
+
                         return (
                             <div key={index} className="card">
                                 <h6>Ciudad: {nombreCiudad}</h6>
