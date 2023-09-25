@@ -1,0 +1,7 @@
+.image{
+    border-radius: 10px;
+    height: 200px;
+    width: 300px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}

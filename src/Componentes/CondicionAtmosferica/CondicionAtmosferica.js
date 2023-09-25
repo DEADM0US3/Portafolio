@@ -55,12 +55,10 @@ function CondicionAtmosferica() {
             .then((condicionAtm) => {
                 setDatos(condicionAtm.results);
                 setCargando(false);
-                setEstadoVacio(false);
             })
             .catch((error) => {
                 console.error("Error al obtener datos:", error);
                 setCargando(false);
-                setEstadoVacio(false);
             });
     }
 
@@ -74,7 +72,7 @@ function CondicionAtmosferica() {
                 <h1>Estado del Tiempo</h1>
             </div>
             <select className="selectState"
-                onChange={(e) => setEstadoActual(e.target.value)}
+                onChange={(e) => [setEstadoActual(e.target.value), setEstadoVacio(false)]}
             >
                 <option value="">Selecciona una opción</option>
                 {estadosMx.map((opcion) => (
@@ -88,7 +86,9 @@ function CondicionAtmosferica() {
 
             {cargando ? (
                 <p>Cargando datos...</p>
-            ) : (
+            ) : 
+            datos.length == 0 && estadoVacio == false ? (<p style={{ color: "red", textAlign: "center"}}>Sin datos para mostrar</p>) : 
+            (
                 <div className="container-cards">
                     {Array.from(new Set(datos.map((ciudad) => ciudad.name))).map((nombreCiudad, index) => {
                         const ciudadData = datos.find((ciudad) => ciudad.name === nombreCiudad);
@@ -96,11 +96,18 @@ function CondicionAtmosferica() {
                         return (
                             <div key={index} className="card">
                                 <h6>Ciudad: {nombreCiudad}</h6>
-                                <p><i>Estado del clima: {ciudadData.skydescriptionlong}</i></p>
+                                <p><i>Estado del clima: {ciudadData.skydescriptionlong}
+                                {ciudadData.skydescriptionlong.toLowerCase().includes("soleado") ? "☀️" :
+                                ciudadData.skydescriptionlong.toLowerCase().includes("nublado") ? "☁️" : 
+                                ciudadData.skydescriptionlong.toLowerCase().includes("lluv") ? "🌧️" : 
+                                ciudadData.skydescriptionlong.toLowerCase().includes("tor") ? "⛈️" : null
+                                }
+                                </i></p>
                                 <p><i>Temperatura: {ciudadData.tempc}°</i></p>
                             </div>
                         );
                     })}
+                    
                 </div>
             )}
         </>

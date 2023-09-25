@@ -8,12 +8,23 @@
 }
 
 .container-cards{
+    max-height: 65vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    overflow: auto;
+    box-sizing: border-box;
+}
+.container-cards::-webkit-scrollbar {
+    background-color: gray;
+    border-radius: 10px;
+    width: 10px;
 }
 
 .card{
-    padding: 1%;
+    padding: 10px;
     margin: 10px;
-    box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.582);    
+    box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.582); 
+    background-image: url(https://gifs.eco.br/wp-content/uploads/2022/07/gifs-de-nuvem-8.gif);   
+
 }
+
