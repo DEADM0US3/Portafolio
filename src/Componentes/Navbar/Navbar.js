@@ -1,34 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {BsCloudSun} from "react-icons/bs";
-import {BiHomeAlt2} from "react-icons/bi";
+import { BsCloudSun } from "react-icons/bs";
+import { BiHomeAlt2 } from "react-icons/bi";
 import './Navbar.css'
 
-export default function ListaApis() {
+function Navbar({ value }) {
 
-  const [selectItem, setSelectItem] = React.useState('home');
-
-  const itemClick = (itemName) => {
-    setSelectItem(itemName);
-  };
+  console.log(value)
 
   return (
     <nav>
-        <ul className='lista-apis'>
-          <Link to="/" onClick={() => itemClick('home')}>
-            <li className={`home-api ${selectItem == 'home'    ?  'selected' : ''}`}>                
-                  <BiHomeAlt2 className='icon-home'/>
-                  Inicio
-            </li>
-          </Link>
-          <Link to='/dashboard/api-weather' onClick={()=> itemClick('weather')}>
-            <li className={`weather-api ${selectItem == 'weather' ?  'selected' : ''}`}>
-                <BsCloudSun className='icon-weather'/>
-                  Estado del tiempo                 
-            </li>
-          </Link>
-        </ul>
+      <ul className='lista-apis'>
+        <Link to="/">
+          <li className={`home-api ${value == 'home' ? 'selected' : ''}`}>
+            <BiHomeAlt2 className='icon-home' />
+            Inicio
+          </li>
+        </Link>
+        <Link to='/dashboard/api-weather'>
+          <li className={`home-api ${value == 'weather' ? 'selected' : ''}`}>
+            <BsCloudSun className='icon-weather' />
+            Estado del tiempo
+          </li>
+        </Link>
+      </ul>
     </nav>
-    
+
   )
 }
+
+export default Navbar

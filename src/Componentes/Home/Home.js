@@ -1,13 +1,16 @@
 import React from 'react';
 import './Home.css';
+import { Link } from 'react-router-dom';
+import { BsCloudSun } from "react-icons/bs";
+import { BiHomeAlt2 } from "react-icons/bi";
 
 const Home = () => {
   return (
         <>
           <div>
-            <h1>Bienvenido</h1>
-            <h2 className='text-start'>Integrantes:</h2>
-            <ul className='text-start'>
+            <h1 className=' font-bold text-4xl'>Bienvenido</h1>
+            <h2 className='text-start mt-10'>Integrantes:</h2>
+            <ul className='text-start mb-10'>
               <li>
                 Kevin Alexis Bello Maldonado
               </li>
@@ -21,22 +24,13 @@ const Home = () => {
           </div>
 
           <div>
-            <h2>APIs y SOA</h2>
-            <p>
-              En esta aplicación, utilizamos APIs (Application Programming Interfaces) y SOA
-              (Service-Oriented Architecture) para obtener datos meteorológicos en tiempo real.
-              Las APIs nos permiten acceder a servicios externos, como la API de condiciones
-              atmosféricas que usamos para proporcionar información actualizada sobre el clima
-              en diferentes estados de México.
-            </p>
-            <img src='https://quintagroup.com/services/service-images/api.jpg' alt='SOA' width='400px' className='image'/>
-            
-            <p>
-              La arquitectura SOA se basa en el principio de dividir las funcionalidades de una
-              aplicación en servicios independientes que pueden ser consumidos de manera modular.
-              Esto nos permite mantener nuestra aplicación escalable y flexible al interactuar
-              con múltiples APIs y servicios externos de manera eficiente.
-            </p>
+            <h2 className=' text-4xl font-bold'>APIs</h2>
+            <Link to='/dashboard/api-weather'>
+          <div style={{backgroundColor:'rgb(0, 106, 255)'}} className=' w-60 h-12 rounded-md flex items-center justify-center my-10' >
+            <BsCloudSun className='icon-weathe text-white mx-2 ' />
+            <p className=' text-white'>Estado del tiempo</p>
+          </div>
+        </Link>
           </div>
         </>
 
