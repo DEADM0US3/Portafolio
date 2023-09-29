@@ -24,7 +24,8 @@
     padding: 10px;
     margin: 10px;
     box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.582); 
-    background-image: url(https://gifs.eco.br/wp-content/uploads/2022/07/gifs-de-nuvem-8.gif);   
+    background-color: white;
+    /* background-image: url(https://gifs.eco.br/wp-content/uploads/2022/07/gifs-de-nuvem-8.gif);    */
 
 }
 

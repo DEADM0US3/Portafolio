@@ -69,12 +69,13 @@ function CondicionAtmosferica() {
     return (
         <>
             <div>
-                <h1>Estado del Tiempo</h1>
+                <h1 className=' font-bold text-4xl'>Estado del Tiempo</h1>
             </div>
             <select className="selectState"
                 onChange={(e) => [setEstadoActual(e.target.value), setEstadoVacio(false)]}
+                disabled={cargando ? true : false}
             >
-                <option value="">Selecciona una opción</option>
+                <option value="" >Selecciona una opción</option>
                 {estadosMx.map((opcion) => (
                     <option key={opcion.id} value={opcion.name}>
                         {opcion.name}
@@ -82,12 +83,12 @@ function CondicionAtmosferica() {
                 ))}
             </select>
 
-            {estadoVacio ? <p style={{ color: "red" }}>Por favor, selecciona un estado.</p> : null}
+            {estadoVacio ? <p style={{ color: "red", fontSize: "30px" }}>Por favor, selecciona un estado.</p> : null}
 
             {cargando ? (
-                <p>Cargando datos...</p>
+                <p style={{fontSize: "30px"}}>Cargando datos...</p>
             ) : 
-            datos.length == 0 && estadoVacio == false ? (<p style={{ color: "red", textAlign: "center"}}>Sin datos para mostrar</p>) : 
+            datos.length == 0 && estadoVacio == false ? (<p style={{ color: "red", textAlign: "center", fontSize: "30px"}}>Sin datos para mostrar</p>) : 
             (
                 <div className="container-cards">
                     {Array.from(new Set(datos.map((ciudad) => ciudad.name))).map((nombreCiudad, index) => {
@@ -97,13 +98,18 @@ function CondicionAtmosferica() {
                             <div key={index} className="card">
                                 <h6>Ciudad: {nombreCiudad}</h6>
                                 <p><i>Estado del clima: {ciudadData.skydescriptionlong}
-                                {ciudadData.skydescriptionlong.toLowerCase().includes("soleado") ? "☀️" :
+                                {/* {ciudadData.skydescriptionlong.toLowerCase().includes("soleado") ? "☀️" :
                                 ciudadData.skydescriptionlong.toLowerCase().includes("nublado") ? "☁️" : 
                                 ciudadData.skydescriptionlong.toLowerCase().includes("lluv") ? "🌧️" : 
                                 ciudadData.skydescriptionlong.toLowerCase().includes("tor") ? "⛈️" : null
-                                }
+                                } */}
                                 </i></p>
                                 <p><i>Temperatura: {ciudadData.tempc}°</i></p>
+                                <p style={{fontSize:"30px"}}>{ciudadData.skydescriptionlong.toLowerCase().includes("soleado") ? "☀️" :
+                                ciudadData.skydescriptionlong.toLowerCase().includes("nublado") ? "☁️" : 
+                                ciudadData.skydescriptionlong.toLowerCase().includes("lluv") ? "🌧️" : 
+                                ciudadData.skydescriptionlong.toLowerCase().includes("tor") ? "⛈️" : null
+                                }</p>
                             </div>
                         );
                     })}
